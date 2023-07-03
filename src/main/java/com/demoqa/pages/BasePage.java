@@ -1,5 +1,6 @@
 package com.demoqa.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -23,5 +24,11 @@ public abstract class BasePage {
       element.clear();
       element.sendKeys(text);
     }
+  }
+
+  public void clickWithJSExecutor(WebElement element, int x, int y) {
+    JavascriptExecutor js = (JavascriptExecutor) wd;
+    js.executeScript("window.scrollBy(" + x + "," + y + ")");
+    click(element);
   }
 }

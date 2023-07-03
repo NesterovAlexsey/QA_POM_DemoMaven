@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
   WebElement alertsFrameWindows;
 
   public SidePanel getAlertsFrameWindows() {
-    click(alertsFrameWindows);
+    clickWithJSExecutor(alertsFrameWindows, 0, 300);
     return new SidePanel(wd);
   }
 }
