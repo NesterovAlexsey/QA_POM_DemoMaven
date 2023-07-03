@@ -33,4 +33,12 @@ public class SidePanel extends BasePage{
     clickWithJSExecutor(selectMenu, 0, 600);
     return new SelectMenuPage(wd);
   }
+
+  @FindBy(xpath = "//span[.='Droppable']")
+  WebElement droppable;
+
+  public DroppablePage selectDroppable() {
+    clickWithJSExecutor(droppable,0,600);
+    return new DroppablePage(wd);
+  }
 }

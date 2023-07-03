@@ -19,4 +19,13 @@ public class SelectTests  extends TestBase{
     new SelectMenuPage(wd).selectOldStyle("Blue");
   }
 
+  @Test
+  public void multiSelectTest() {
+    new SelectMenuPage(wd).multiSelect(new String[]{"Blue","Black","Red"});
+  }
+
+  @Test
+  public void standardMultiSelectTest() {
+    new SelectMenuPage(wd).standardMultiSelect(2);
+  }
 }

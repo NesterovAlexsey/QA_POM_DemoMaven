@@ -25,5 +25,13 @@ public class HomePage extends BasePage {
     clickWithJSExecutor(widgets, 0, 300);
     return new SidePanel(wd);
   }
+
+  @FindBy(xpath = "//h5[.='Interactions']")
+  WebElement interactions;
+
+  public SidePanel getInteractions() {
+    clickWithJSExecutor(interactions, 0, 300);
+    return new SidePanel(wd);
+  }
 }
 

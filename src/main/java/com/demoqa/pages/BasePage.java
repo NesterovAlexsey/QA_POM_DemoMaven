@@ -39,4 +39,9 @@ public abstract class BasePage {
     return new WebDriverWait(wd, Duration.ofSeconds(time))
         .until(ExpectedConditions.textToBePresentInElement(element, text));
   }
+
+  public void hideAdd() {
+    JavascriptExecutor js = (JavascriptExecutor) wd;
+    js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
+  }
 }
