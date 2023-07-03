@@ -17,4 +17,20 @@ public class SidePanel extends BasePage{
     clickWithJSExecutor(alerts, 0, 300);
     return new AlertsPage(wd);
   }
+
+  @FindBy(xpath = "//span[.='Browser Windows']")
+  WebElement browserWindows;
+
+  public BrowserWindowsPage selectBrowserWindows() {
+    clickWithJSExecutor(browserWindows, 0, 300);
+    return new BrowserWindowsPage(wd);
+  }
+
+  @FindBy(xpath = "//span[.='Select Menu']")
+  WebElement selectMenu;
+
+  public SelectMenuPage selectSelectMenu() {
+    clickWithJSExecutor(selectMenu, 0, 600);
+    return new SelectMenuPage(wd);
+  }
 }

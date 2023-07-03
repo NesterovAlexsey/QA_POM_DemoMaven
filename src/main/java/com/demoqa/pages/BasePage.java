@@ -1,9 +1,12 @@
 package com.demoqa.pages;
 
+import java.time.Duration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
@@ -30,5 +33,10 @@ public abstract class BasePage {
     JavascriptExecutor js = (JavascriptExecutor) wd;
     js.executeScript("window.scrollBy(" + x + "," + y + ")");
     click(element);
+  }
+
+  public boolean shouldHaveText(WebElement element, String text, int time) {
+    return new WebDriverWait(wd, Duration.ofSeconds(time))
+        .until(ExpectedConditions.textToBePresentInElement(element, text));
   }
 }
