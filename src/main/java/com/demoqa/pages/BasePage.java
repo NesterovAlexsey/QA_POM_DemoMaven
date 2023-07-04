@@ -44,4 +44,12 @@ public abstract class BasePage {
     JavascriptExecutor js = (JavascriptExecutor) wd;
     js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
   }
+
+  public void pause(int millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+  }
 }

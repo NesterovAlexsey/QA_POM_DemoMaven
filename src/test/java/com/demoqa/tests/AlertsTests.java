@@ -20,4 +20,25 @@ public class AlertsTests extends TestBase{
         .sendMessageToAlert("Hello world!")
         .assertMessage("Hello world!");
   }
+
+  @Test
+  public void clickButtonToSeeAlert() {
+    new AlertsPage(wd)
+        .clickSimpleAllertButton()
+        .clickOkInAllert();
+  }
+
+  @Test
+  public void clickToAlertWithDelay() {
+    new AlertsPage(wd)
+        .clickOnAlertWithDelayButton()
+        .clickOkInAllert();
+  }
+
+  @Test
+  public void testAlertWithConfirm() {
+    new AlertsPage(wd)
+        .clickAlertWithConfirm()
+        .assertConfirmAlert();
+  }
 }
