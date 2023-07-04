@@ -35,4 +35,15 @@ public class BrowserWindowsPage extends BasePage{
     Assert.assertTrue(shouldHaveText(sampleHeading, text, 15));
     return this;
   }
+
+  @FindBy(id = "tabButton")
+  WebElement tabButton;
+
+  public BrowserWindowsPage switchToNewTab(int index) {
+
+    click(tabButton);
+    List<String> tabs = new ArrayList<>(wd.getWindowHandles());
+    wd.switchTo().window(tabs.get(index));
+    return this;
+  }
 }
