@@ -1,5 +1,6 @@
 package com.demoqa.tests;
 
+import com.demoqa.data.StudentData;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.PracticeFormPage;
 import com.demoqa.pages.SidePanel;
@@ -26,6 +27,25 @@ public class PracticeFormTests extends TestBase {
         .enterAddress("street 1")
         .selectSatate("NCR")
         .selectCity("Delhi")
+        .submit();
+  }
+
+  @Test
+  public void fillPracticeFormWithFinalData() {
+    new PracticeFormPage(wd)
+        .enterPersonalData(StudentData.FIRST_NAME,
+            StudentData.LAST_NAME,
+            StudentData.EMAIL,
+            StudentData.PHONE_NUMBER)
+        .selectGender(StudentData.GENDER)
+//        .typeData(StudentData.B_DAY)
+        .selectDate("May","2000","19")
+        .addSubject(StudentData.SUBJECTS)
+        .selectHobby(StudentData.HOBBIES)
+        .uploadFile(StudentData.PHOTO_PATH)
+        .enterAddress(StudentData.ADDRESS)
+        .selectSatate(StudentData.STATE)
+        .selectCity(StudentData.CITY)
         .submit();
   }
 }

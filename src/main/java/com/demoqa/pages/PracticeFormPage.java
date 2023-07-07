@@ -1,11 +1,13 @@
 package com.demoqa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
-public class PracticeFormPage extends BasePage{
+public class PracticeFormPage extends BasePage {
 
   public PracticeFormPage(WebDriver wd) {
     super(wd);
@@ -146,6 +148,26 @@ public class PracticeFormPage extends BasePage{
 
   public PracticeFormPage submit() {
     click(submit);
+    return this;
+  }
+
+  @FindBy(css = ".react-datepicker__month-select")
+  WebElement month;
+
+  @FindBy(css = ".react-datepicker__year-select")
+  WebElement year;
+
+  public PracticeFormPage selectDate(String m, String y, String day) {
+    click(dateOfBirthInput);
+
+    Select select = new Select(month);
+    select.selectByVisibleText(m);
+
+    Select select1 = new Select(year);
+    select1.selectByVisibleText(y);
+
+    wd.findElement(By.xpath("//div[.='" + day + "']")).click();
+
     return this;
   }
 }
