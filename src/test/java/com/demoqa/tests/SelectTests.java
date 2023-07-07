@@ -33,4 +33,9 @@ public class SelectTests  extends TestBase {
   public void selectValueTest() {
     new SelectMenuPage(wd).selectValue("Group 1, option 1");
   }
+
+  @Test
+  public void selectOneTest() {
+    new SelectMenuPage(wd).selectOne("Dr.");
+  }
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class SelectMenuPage extends BasePage{
+public class SelectMenuPage extends BasePage {
 
   public SelectMenuPage(WebDriver wd) {
     super(wd);
@@ -24,7 +24,7 @@ public class SelectMenuPage extends BasePage{
     List<WebElement> options = select.getOptions();
     System.out.println(select.getFirstSelectedOption().getText() + " is first");
 
-    for (int i= 0; i < options.size(); i++) {
+    for (int i = 0; i < options.size(); i++) {
       System.out.println(options.get(i).getText());
     }
 
@@ -61,12 +61,21 @@ public class SelectMenuPage extends BasePage{
     return this;
   }
 
-  @FindBy(id = "withOptGroup")
+  @FindBy(id = "react-select-2-input")
   WebElement withOptGroup;
 
   public SelectMenuPage selectValue(String text) {
-    Select select = new Select(withOptGroup);
-    select.selectByVisibleText(text);
+    withOptGroup.sendKeys(text);
+    withOptGroup.sendKeys(Keys.ENTER);
+    return this;
+  }
+
+  @FindBy(id = "react-select-3-input")
+  WebElement inputStatus;
+
+  public SelectMenuPage selectOne(String beforeName) {
+    inputStatus.sendKeys(beforeName);
+    inputStatus.sendKeys(Keys.ENTER);
     return this;
   }
 }
