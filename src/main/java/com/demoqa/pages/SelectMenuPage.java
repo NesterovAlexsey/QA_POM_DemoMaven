@@ -60,4 +60,13 @@ public class SelectMenuPage extends BasePage{
 
     return this;
   }
+
+  @FindBy(id = "withOptGroup")
+  WebElement withOptGroup;
+
+  public SelectMenuPage selectValue(String text) {
+    Select select = new Select(withOptGroup);
+    select.selectByVisibleText(text);
+    return this;
+  }
 }

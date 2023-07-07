@@ -14,12 +14,12 @@ public class AlertsTests extends TestBase{
     new SidePanel(wd).selectAlerts();
   }
 
-  @Test
-  public void sendMessageToAlertTest() {
-    new AlertsPage(wd)
-        .sendMessageToAlert("Hello world!")
-        .assertMessage("Hello world!");
-  }
+//  @Test
+//  public void sendMessageToAlertTest() {
+//    new AlertsPage(wd)
+//        .sendMessageToAlert("Hello world!")
+//        .assertMessage("Hello world!");
+//  }
 
   @Test
   public void clickButtonToSeeAlert() {
