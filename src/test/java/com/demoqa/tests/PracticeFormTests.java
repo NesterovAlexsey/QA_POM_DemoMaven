@@ -49,4 +49,6 @@ public class PracticeFormTests extends TestBase {
         .submit()
         .assertNewTabCheckDataAppear("Thanks for submitting the form");
   }
+
+  //Test commit for check bag with big letter disappear in console
 }
