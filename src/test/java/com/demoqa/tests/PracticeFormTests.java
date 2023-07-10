@@ -20,7 +20,8 @@ public class PracticeFormTests extends TestBase {
     new PracticeFormPage(wd)
         .enterPersonalData("Alex", "Tester", "adc@gmail.com", "1234567890")
         .selectGender("Male")
-        .typeData("14 Jul 1960")
+//        .typeData("14 Jul 1960")
+        .selectDate("May","2000","19")
         .addSubject(new String[]{"Maths", "English", "Chemistry"})
         .selectHobby(new String[]{"Sports", "Music"})
         .uploadFile("C:/Users/AIT TR Student/Downloads/Java_logo_PNG1.png")
@@ -38,14 +39,14 @@ public class PracticeFormTests extends TestBase {
             StudentData.EMAIL,
             StudentData.PHONE_NUMBER)
         .selectGender(StudentData.GENDER)
-//        .typeData(StudentData.B_DAY)
-        .selectDate("May","2000","19")
+        .typeData(StudentData.B_DAY)
         .addSubject(StudentData.SUBJECTS)
         .selectHobby(StudentData.HOBBIES)
         .uploadFile(StudentData.PHOTO_PATH)
         .enterAddress(StudentData.ADDRESS)
         .selectSatate(StudentData.STATE)
         .selectCity(StudentData.CITY)
-        .submit();
+        .submit()
+        .assertNewTabCheckDataAppear("Thanks for submitting the form");
   }
 }

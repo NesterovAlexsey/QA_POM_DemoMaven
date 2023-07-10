@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class PracticeFormPage extends BasePage {
 
@@ -168,6 +169,14 @@ public class PracticeFormPage extends BasePage {
 
     wd.findElement(By.xpath("//div[.='" + day + "']")).click();
 
+    return this;
+  }
+
+  @FindBy(id = "example-modal-sizes-title-lg")
+  WebElement submitText;
+
+  public PracticeFormPage assertNewTabCheckDataAppear(String text) {
+    Assert.assertTrue(shouldHaveText(submitText, text, 15));
     return this;
   }
 }
